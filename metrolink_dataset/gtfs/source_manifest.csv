@@ -1,0 +1,5 @@
+operator,mode,source,archive,data_status,notes
+AMTS,BUS,https://github.com/croyla/amd-gtfs,gtfs_compat.zip,not downloaded in this environment,Import from GTFS archive; preserve original agency/route/stop IDs.
+Ahmedabad Janmarg Limited,BRTS,https://github.com/croyla/amd-gtfs,gtfs_compat.zip,not downloaded in this environment,Repository states AJL IDs are prefixed with BRTS_.
+GTSL / Gandhinagar,BUS,https://github.com/croyla/amd-gtfs,gtfs_compat.zip,not downloaded in this environment; stale-time warning,Upstream repository warns GTSL trip times may be obsolete. Validate calendars and current operations before routing.
+GMRC,METRO,https://www.gujaratmetrorail.com/ahmedabad/route-and-fares/,official webpages and route/timetable documents,station-name curation included; exact graph edges/times need validation,Do not infer route adjacency or current service from station list alone.

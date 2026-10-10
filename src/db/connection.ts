@@ -1,0 +1,10 @@
+import Database from 'better-sqlite3';
+import fs from 'node:fs';
+import path from 'node:path';
+const file=process.env.DATABASE_PATH||'./data/metrolink.sqlite';
+fs.mkdirSync(path.dirname(path.resolve(file)),{recursive:true});
+export const db=new Database(file);
+db.pragma('foreign_keys = ON');
+db.exec(fs.readFileSync(path.join(process.cwd(),'src/db/schema.sql'),'utf8'));
+const agencyCols=db.pragma('table_info(agencies)') as {name:string}[];
+if(!agencyCols.some(c=>c.name==='source_agency_id'))db.exec('ALTER TABLE agencies ADD COLUMN source_agency_id TEXT');

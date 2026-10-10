@@ -1,0 +1,3 @@
+import fs from 'node:fs';import path from 'node:path';
+const url='https://github.com/croyla/amd-gtfs/raw/refs/heads/main/gtfs_compat.zip',target=process.env.GTFS_ARCHIVE||'data/gtfs/amd-gtfs.zip';
+async function main(){fs.mkdirSync(path.dirname(target),{recursive:true});try{const response=await fetch(url);if(!response.ok)throw new Error(`HTTP ${response.status} ${response.statusText}`);fs.writeFileSync(target,Buffer.from(await response.arrayBuffer()));console.log(`Downloaded ${target}`);}catch(e){const err=e as Error;console.error(`Download failed: ${err.message}${err.cause?`; cause: ${(err.cause as Error).message}`:''}. Retry with npm run download:gtfs when network is available; source: ${url}`);process.exitCode=1;}}void main();

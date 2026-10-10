@@ -1,0 +1,36 @@
+{
+  "dataset_name": "MetroLink Ahmedabad-Gandhinagar starter dataset",
+  "created_on": "2026-10-10",
+  "coverage": "Ahmedabad and Gandhinagar",
+  "sources": [
+    {
+      "operator": "GMRC",
+      "url": "https://www.gujaratmetrorail.com/ahmedabad/information-of-entry-exit-gate-at-entrance/",
+      "status": "used_for_station_names_and_gate/lift-location_transcription"
+    },
+    {
+      "operator": "AMTS/AJL/GTSL",
+      "url": "https://github.com/croyla/amd-gtfs",
+      "status": "candidate_GTFS_not_downloaded_in_this_environment; GTSL_times_potentially_stale"
+    },
+    {
+      "operator": "AMTS",
+      "url": "https://www.amts.co.in/plan/",
+      "status": "official_journey_planner_reference"
+    },
+    {
+      "operator": "Ahmedabad Janmarg Limited",
+      "url": "https://www.ahmedabadbrts.org/en/plan/",
+      "status": "official_journey_planner_reference"
+    }
+  ],
+  "not_included": [
+    "fabricated bus routes",
+    "fabricated schedules",
+    "fabricated coordinates",
+    "fabricated fares",
+    "fabricated rickshaw stands",
+    "fabricated walking distances"
+  ],
+  "status": "partial source-grounded dataset; not ready for production routing"
+}

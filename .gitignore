@@ -1,0 +1,22 @@
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+coverage/
+.cache/
+*.log
+.env
+.env.*
+!.env.example
+data/*.sqlite
+data/*.sqlite-*
+*.test.sqlite
+*.test.sqlite-*
+data/gtfs/tmp/
+data/gtfs/extracted/
+
+# Local secrets and generated files
+.DS_Store
+*.pem
+*.key
+data/gtfs/*.zip
