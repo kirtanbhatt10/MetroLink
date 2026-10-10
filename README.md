@@ -64,3 +64,13 @@ In `frontend/`, run `npm run typecheck`, `npm run build`, and `npm test`.
 
 The loaded database contains 4 agencies including GMRC curation, 3,260 stops, 639 routes, 14,323 trips, 646,471 stop times, 1 calendar, 0 calendar exceptions, 0 transfers, 0 frequencies, 270,043 shape points, 57 curated metro stations, and 31 gate/lift entries. GTFS operator records: AJL 149 routes / 3,940 trips / 193 served stops; AMTS 474 / 10,167 / 3,039; GTSL 16 / 216 / 74 (stale and not routable). The 3,203 bus stops are unverified in this feed; 57 metro stops have unknown coordinates and no supported graph connections. Three repeated station-name groups remain separate by ID; 57 metro corridor/order listings require validation and one gate listing could not be uniquely matched. Run `npm run validate` for the current live database report.
 
+<<<<<<< HEAD
+=======
+## Known limitations
+
+No verified metro trip graph or supported GTFS transfer links are present, so metro cannot participate in route planning. The feed has no calendar exceptions, transfers or frequencies. Only observed GTFS trips and explicitly supported connections can be routed; no completeness or service freshness is guaranteed for AMTS/AJL by this import. Landmark recovery uses a selected stop as the new origin; generic instructions are returned when verified navigation steps are unavailable. No live data, fares, or generated demo graph are included.
+
+## Routing notes
+
+Boarding is limited to departures within 2 hours of arriving at a stop (`MAX_WAIT_SECONDS` in `src/services/routing/engine.ts`), which cut worst-case multi-transfer searches from about 34 s to about 6 s with identical results on the benchmark journeys. Journeys that would need a longer wait are not returned. The planner uses the current time when no departure time is supplied, so late-night searches (after the last scheduled departure) return "no active connection".
+>>>>>>> Speed up routing: numeric ride sort, binary-search boarding, 2h max wait
